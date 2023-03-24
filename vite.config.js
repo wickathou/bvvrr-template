@@ -1,7 +1,10 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import babelJest from 'babel-jest'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,12 +16,10 @@ export default defineConfig({
     }
   },
   test: {
+    globals:true,
     environment: 'jsdom',
-    transform: {
-      '^.+\\.jsx?$': babelJest.createTransformer({
-        presets: ['@babel/preset-react'],
-      }),
-    },
+    setupFiles: "./src/tests/setup.js",
+    css: true,
     coverage: {
       reporter:['text','html']
     }

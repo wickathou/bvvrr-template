@@ -10,9 +10,9 @@ test('uses jest-dom', () => {
     <div data-testid="visible">Visible Example</div>
   `
 
-  expect(screen.getByText('Visible Example')).to.exist
+  // expect(screen.getByText('some text')).toMatchSnapshot()
+  // expect(screen.queryByTestId('not-empty')).not.toBeEmptyDOMElement()
+  // console.log(screen.getByText('Visible Example').textContent);
+  expect(screen.getByText('Visible Example')).toBeVisible()
+  // expect(10).toBe(10)
 })
-// expect(screen.getByText('some text')).toMatchSnapshot()
-// expect(screen.queryByTestId('not-empty')).not.toBeEmptyDOMElement()
-// console.log(screen.getByText('Visible Example').textContent);
-// expect(10).toBe(10)
